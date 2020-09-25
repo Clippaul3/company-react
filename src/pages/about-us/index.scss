@@ -1,0 +1,30 @@
+.about{
+  padding: 100px;
+  &-container{
+    width: 300px;
+    //height: 300px;
+  }
+  #mapContainer{
+    width: 100%;
+    height: 100%;
+  }
+
+  &-content{
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-words{
+      margin: 10px 0;
+    }
+  }
+
+  .about-us-item{
+    text-align: center;
+  }
+  .icon{
+    font-size: 32px;
+  }
+}
