@@ -13,7 +13,7 @@ jobs:
           npm run build
  
       - name: Deploy
-        uses: github-pages-deploy-action@releases/v3
+        uses: github-pages-deploy-action@releases
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
