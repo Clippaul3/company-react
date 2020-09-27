@@ -45,7 +45,7 @@ class Home extends Component {
                 </Carousel>
                 <div className={'home-body'}>
                     <div className="home-desc">
-                        <div className="home-desc-title">服务范围</div>
+                        <div className="home-desc-title">服务范围 </div>
                         <div className="home-desc-content">
                             <div className="home-desc-items">
                                 <div className={'home-desc-items-item'}>
