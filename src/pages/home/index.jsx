@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './index.scss';
-import {Image, Layout} from "antd";
+import {Image, Spin} from "antd";
 import {Row, Col, Carousel} from 'antd'
 import game1 from '../../images/game1.png'
 import game2 from '../../images/game2.png'
@@ -18,20 +18,23 @@ import Media from "react-media";
 class Home extends Component {
 
     state = {
-        team: []
+        team: [],
+        isLoading: false
     }
 
     componentDidMount() {
-        axios.get(
-            'https://www.fastmock.site/mock/9f18233f8bcfe1edef0d50d02959d7af/company/team'
-        ).then(res => {
-            console.log(res)
-            this.setState({team: res.data})
+        this.setState({isLoading: true}, () => {
+            axios.get(
+                'https://www.fastmock.site/mock/9f18233f8bcfe1edef0d50d02959d7af/company/team'
+            ).then(res => {
+                console.log(res)
+                this.setState({team: res.data,isLoading:false})
+            })
         })
     }
 
     render() {
-        let {team} = this.state
+        let {team, isLoading} = this.state
         return (
             <div className="home">
                 <Carousel autoplay={true} dots={true}>
@@ -69,36 +72,42 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className={'home-team'}>
-                        {
-                            team.map((member, index) => (
-                                <Row key={index} className={'home-team-member'}>
-                                    <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
-                                        <div className={'home-team-member-image'}>
-                                            <Image className={'image'}
-                                                   src={require(`../../images/${member.name}.png`)}/>
-                                        </div>
-                                    </Col>
-                                    <Col md={12} lg={16} xxl={16} xl={16}>
-                                        <div className={'home-team-member-info'}>
-                                            <div className={'home-team-member-name'}>
-                                                {member.name}
-                                            </div>
-                                            <div className={'home-team-member-position'}>
-                                                {member.position}
-                                            </div>
-                                            <div className={'home-team-member-desc'}>
-                                                &nbsp;&nbsp;{member.desc}
-                                            </div>
-                                            <div className={'home-team-member-ability'}>
-                                                &nbsp;&nbsp;{member.ability}
-                                            </div>
-                                        </div>
-                                    </Col>
-                                </Row>
-                            ))
-                        }
-                    </div>
+                    {
+                        isLoading ?
+                            <div className={'loading'}>
+                                <Spin size={"large"}/>
+                            </div> :
+                            <div className={'home-team'}>
+                                {
+                                    team.map((member, index) => (
+                                        <Row key={index} className={'home-team-member'}>
+                                            <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
+                                                <div className={'home-team-member-image'}>
+                                                    <Image className={'image'}
+                                                           src={require(`../../images/${member.name}.png`)}/>
+                                                </div>
+                                            </Col>
+                                            <Col md={12} lg={16} xxl={16} xl={16}>
+                                                <div className={'home-team-member-info'}>
+                                                    <div className={'home-team-member-name'}>
+                                                        {member.name}
+                                                    </div>
+                                                    <div className={'home-team-member-position'}>
+                                                        {member.position}
+                                                    </div>
+                                                    <div className={'home-team-member-desc'}>
+                                                        &nbsp;&nbsp;{member.desc}
+                                                    </div>
+                                                    <div className={'home-team-member-ability'}>
+                                                        &nbsp;&nbsp;{member.ability}
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    ))
+                                }
+                            </div>
+                    }
                 </div>
             </div>
         );
