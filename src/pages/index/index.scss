@@ -4,4 +4,38 @@
   font-size: 14px;
   line-height: 40px;
   color: white;
+  margin-right: 10px;
+  &-link{
+    font-size: 24px;
+  }
+}
+.pc-link{
+  display: flex;
+  align-items: center;
+}
+.mobile-link{
+  display: none;
+}
+.link-hide{
+  display: none;
+}
+.hamburger{
+  font-size: 32px;
+}
+
+@media screen and (max-width: 800px){
+  .mobile-link{
+    display: block;
+  }
+  .pc-link{
+    display: none;
+  }
+}
+@media screen and (max-width: 400px){
+  .ant-drawer-right .ant-drawer-content-wrapper{
+    width: 150px !important;
+  }
+  .item-link{
+    font-size: 15px;
+  }
 }

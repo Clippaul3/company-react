@@ -13,15 +13,15 @@ class Footer extends Component {
                 <div className="footer-items">
                     <div>
                         <EnvironmentOutlined className={'footer-icon'}/>
-                        <div>福州市仓山区万达</div>
+                        <div className={'footer-name'}>福州市仓山区万达</div>
                     </div>
                     <div>
                         <MailOutlined className={'footer-icon'}/>
-                        <div>lol.qq.com</div>
+                        <div className={'footer-name'}>lol.qq.com</div>
                     </div>
                     <div>
                         <PhoneOutlined className={'footer-icon'}/>
-                        <div>443-4396-2200</div>
+                        <div className={'footer-name'}>443-4396-2200</div>
                     </div>
                     <div>
                         <Image src={require('../../images/code2.png')}/>

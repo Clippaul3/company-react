@@ -2,19 +2,21 @@
   text-align: center;
   background: rgb(215, 215, 215);
   width: 100%;
-  padding: 20px 60px;
+  //padding: 20px 60px;
   &-icon{
     font-size: 50px;
   }
 }
 
 .footer-items {
-  width: 100%;
+  width: 1200px;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   padding-bottom: 20px;
+  margin: 0 auto;
 }
 
 .footer-items:after {
@@ -30,4 +32,13 @@
 
 .copyright {
   margin-top: 10px;
+}
+
+@media screen and (max-width: 400px){
+  .footer-icon{
+    font-size: 20px;
+  }
+  .footer-name{
+    font-size: 10px;
+  }
 }

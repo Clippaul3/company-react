@@ -10,14 +10,22 @@ class Head extends Component {
     render() {
         return (
             <div className="head">
-                <Row>
-                    <Col xs={12} sm={12} md={18} lg={21} xl={21} xxl={21}>
+                {/*<Row className={'head-row'}>*/}
+                {/*    <Col xs={12} sm={12} md={18} lg={20} xl={21} xxl={21}>*/}
+                {/*        <div className={'head-avatar'}>*/}
+                {/*            <Image src={logo} className={'logo'}/>*/}
+                {/*        </div>*/}
+                {/*    </Col>*/}
+                {/*    {this.props.children}*/}
+                {/*</Row>*/}
+                <div className={'head-row'}>
+                    <div className={'avatar-grow'}>
                         <div className={'head-avatar'}>
                             <Image src={logo} className={'logo'}/>
                         </div>
-                    </Col>
+                    </div>
                     {this.props.children}
-                </Row>
+                </div>
             </div>
         );
     }

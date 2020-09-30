@@ -9,9 +9,11 @@ import {
     ExperimentOutlined,
     MedicineBoxOutlined,
     GiftOutlined,
-    RocketOutlined
+    RocketOutlined,
+    MenuOutlined
 } from '@ant-design/icons'
 import axios from 'axios'
+import Media from "react-media";
 
 class Home extends Component {
 
@@ -34,13 +36,13 @@ class Home extends Component {
             <div className="home">
                 <Carousel autoplay={true} dots={true}>
                     <div className={'home-image-container'}>
-                        <Image className={'home-image'} src={game1}/>
+                        <img className={'home-image'} src={game1}/>
                     </div>
                     <div className={'home-image-container'}>
-                        <Image className={'home-image'} src={game2}/>
+                        <img className={'home-image'} src={game2}/>
                     </div>
                     <div className={'home-image-container'}>
-                        <Image className={'home-image'} src={game3}/>
+                        <img className={'home-image'} src={game3}/>
                     </div>
                 </Carousel>
                 <div className={'home-body'}>

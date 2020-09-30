@@ -1,5 +1,9 @@
 .list{
-  padding: 40px 60px;
+  padding: 40px 15px;
+  .loading{
+    width: 100%;
+    text-align: center;
+  }
   &-news{
     &-item{
       box-sizing: border-box;
@@ -7,6 +11,7 @@
       padding: 20px;
       background: whitesmoke;
       box-shadow: 10px 10px 15px lightgray;
+      border-right: solid 1px lightgrey;
     }
     &-info{
       align-items: center;
