@@ -14,10 +14,18 @@ class NewsList extends Component {
     }
 
     componentDidMount() {
-        this.loadData()
+
+
+        let storage = window.localStorage
+        if(storage.pageNo){
+            this.loadData(storage.pageNo)
+        }else{
+            this.loadData()
+        }
     }
 
     loadData = (pageNo = '1') => {
+        let storage = window.localStorage
         this.setState({isLoading: true}, () => {
             axios.get(
                 `https://www.fastmock.site/mock/9f18233f8bcfe1edef0d50d02959d7af/company/news?pageNo=${pageNo}&pageSize=10`
@@ -28,21 +36,11 @@ class NewsList extends Component {
                     total: res.data.data.totalRecord,
                     current: res.data.data.pageNo * 1,
                     isLoading: false
+                },()=>{
+                    storage.pageNo = res.data.data.pageNo * 1
                 })
             })
         })
-
-        // axios.post(
-        //     'https://www.fastmock.site/mock/9f18233f8bcfe1edef0d50d02959d7af/company/getNewsList',
-        //     {page: pageNo}
-        // ).then(res => {
-        //     console.log(res)
-        //     this.setState({
-        //         newsList: res.data.data.newsList.data,
-        //         total: res.data.data.newsList.total,
-        //         current: res.data.data.newsList.current
-        //     })
-        // })
     }
 
     handlePageChange = (page) => {
@@ -53,7 +51,7 @@ class NewsList extends Component {
         console.log(id, this.props)
         // this.props.viewDetail(id)
         this.props.history.push({
-            pathname: '/news-detail',
+            pathname: '/news-detail/'+id,
             state: {id: id}
         })
     }

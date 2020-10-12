@@ -4,11 +4,12 @@
   }
 
   &-image {
-    width: 1200px;
-    max-width: 100%;
+    //width: 1200px;
+    //max-width: 100%;
+    width: 100%;
     height: auto;
     max-height: 350px;
-    margin: 0 auto;
+    //margin: 0 auto;
   }
 
   .ant-image-img{
@@ -81,7 +82,6 @@
       }
       &-image{
         width: 100%;
-        padding-right: 20px;
       }
       &-name{
         font-size: 32px;
