@@ -10,6 +10,8 @@
     height: auto;
     max-height: 350px;
     //margin: 0 auto;
+    //image-rendering: -webkit-crisp-edges;
+    image-rendering: high-quality;
   }
 
   .ant-image-img{
@@ -108,5 +110,11 @@
         font-weight: bold;
       }
     }
+  }
+}
+
+@media screen and (min-width: 900px){
+  .home-image{
+    max-height: 450px;
   }
 }
